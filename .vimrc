@@ -1,7 +1,74 @@
-" Use the Solarized Dark theme
-set background=dark
-colorscheme solarized
-let g:solarized_termtrans=1
+set nocompatible              " be iMproved, required
+filetype off                  " required
+
+" set the runtime path to include Vundle and initialize
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
+" alternatively, pass a path where Vundle should install plugins
+"call vundle#begin('~/some/path/here')
+
+" let Vundle manage Vundle, required
+Plugin 'gmarik/Vundle.vim'
+
+" The following are examples of different formats supported.
+" Keep Plugin commands between vundle#begin/end.
+" plugin on GitHub repo
+Plugin 'andviro/flake8-vim'
+
+
+" All of your Plugins must be added before the following line
+call vundle#end()            " required
+filetype plugin indent on    " required
+" To ignore plugin indent changes, instead use:
+"filetype plugin on
+"
+" Brief help
+" :PluginList       - lists configured plugins
+" :PluginInstall    - installs plugins; append `!` to update or just :PluginUpdate
+" :PluginSearch foo - searches for foo; append `!` to refresh local cache
+" :PluginClean      - confirms removal of unused plugins; append `!` to auto-approve removal
+"
+" see :h vundle for more details or wiki for FAQ
+" Put your non-Plugin stuff after this line
+
+let g:PyFlakeOnWrite = 1
+let g:PyFlakeCheckers = 'flake8,pep8'
+let g:PyFlakeSigns = 1
+
+if has("mouse")
+  set mouse=a
+endif
+
+set nocompatible
+filetype on
+filetype plugin on
+
+set smartindent
+set autoindent
+
+set tabstop=2
+set softtabstop=2
+set shiftwidth=2
+set expandtab
+set smarttab
+
+set showcmd
+
+set textwidth=79
+
+syntax on
+
+set statusline=%f%m%r%h%w\ [%{&ff}]\ [TYPE=%Y]\ [A=\%03.3b]\ %=\ [%04l:%04v]\ %P%%
+
+map <C-J> <C-W>j<C-W>
+map <C-K> <C-W>k<C-W>
+set wmh=0
+
+" Normal backspace
+set backspace=2
+
+" Code completion
+inoremap <Nul> <C-x><C-o>
 
 " Make Vim more useful
 set nocompatible
@@ -104,3 +171,18 @@ if has("autocmd")
     " Treat .md files as Markdown
     autocmd BufNewFile,BufRead *.md setlocal filetype=markdown
 endif
+
+
+" Python stuff
+set tags+=$HOME/.vim/tags/python.ctags
+
+autocmd FileType python set omnifunc=pythoncomplete#Complete
+
+python << EOF
+import os
+import sys
+import vim
+for p in sys.path:
+  if os.path.isdir(p):
+    vim.command(r"set path+=%s" % (p.replace(" ", r"\ ")))
+EOF
