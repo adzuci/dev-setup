@@ -38,14 +38,14 @@ export PATH=/usr/local/bin:$PATH
 export PATH=$PATH:/Users/adzuci/.local/lib/aws/bin
 
 alias pt='papertrail'
-export PAPERTRAIL_API_TOKEN='0gA3YbyIWNwhM9afIeQd'
+export PAPERTRAIL_API_TOKEN=''
 
 # Google
 export GOPATH=/Users/adzuci/Documents/gocode
 
 
 # Brew:
-export HOMEBREW_GITHUB_API_TOKEN=14ee0ff9a72add8f52d4afbe1f4770c2f797680b
+export HOMEBREW_GITHUB_API_TOKEN=
 
 # OSX Specific
 export LSCOLORS=gxBxhxDxfxhxhxhxhxcxcx
