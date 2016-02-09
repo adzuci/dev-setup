@@ -67,13 +67,6 @@ function runDots() {
     echo ""
     ./datastores.sh
 
-    # Run the webdev.sh Script
-    echo "------------------------------"
-    echo "Step 8/9: Setting up JavaScript web development environment."
-    echo "------------------------------"
-    echo ""
-    #./webdev.sh # coming soon
-
     # Run the android.sh Script
     echo "------------------------------"
     echo "Step 9/9: Setting up Android development environment."
